@@ -1,0 +1,2630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Falcon Katie - Elite Book Marketing Specialist helping authors transform their books into bestsellers.">
+    <title>Falcon Katie | Elite Book Marketing Specialist</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f0d875;
+            --gold-dark: #b8962e;
+            --navy: #1a1a2e;
+            --dark: #0f0f1a;
+            --darker: #090912;
+            --white: #ffffff;
+            --cream: #faf8f5;
+            --gray: #888;
+            --text: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== PRELOADER ========== */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: all 0.8s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 40px;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(212, 175, 55, 0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 15, 26, 0.98);
+            padding: 15px 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark) !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 50%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 50px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-bg-glow.glow1 {
+            width: 600px;
+            height: 600px;
+            background: var(--gold);
+            top: -200px;
+            right: -100px;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .hero-bg-glow.glow2 {
+            width: 500px;
+            height: 500px;
+            background: var(--gold-light);
+            bottom: -200px;
+            left: -100px;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -50px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+        }
+
+        .hero-badge i {
+            color: var(--gold);
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .hero-title .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(212, 175, 55, 0.3);
+            z-index: -1;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 35px;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-img-frame {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--gold);
+            border-radius: 25px;
+            z-index: -1;
+            animation: frameGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes frameGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.5); }
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-card.card1 {
+            top: 30px;
+            right: -30px;
+        }
+
+        .floating-card.card2 {
+            bottom: 50px;
+            left: -40px;
+            animation-delay: -2s;
+        }
+
+        .floating-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .floating-card-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .floating-card-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* ========== TRUST SECTION ========== */
+        .trust-section {
+            background: var(--white);
+            padding: 60px 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trust-title {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .trust-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust-item i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .trust-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .trust-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* ========== SECTIONS COMMON ========== */
+        .section {
+            padding: 100px 50px;
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, var(--navy), var(--dark));
+            color: var(--white);
+        }
+
+        .section-light {
+            background: var(--white);
+        }
+
+        .section-cream {
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== ABOUT ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-accent {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .experience-box {
+            position: absolute;
+            top: 30px;
+            right: -50px;
+            background: var(--navy);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-box .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .experience-box .text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .about-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 15px;
+        }
+
+        .about-feature-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--text);
+        }
+
+        .about-feature p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* ========== SERVICES ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark);
+            margin: 0 auto 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            text-align: left;
+        }
+
+        .service-list li {
+            color: var(--gray);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .service-list li i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        /* ========== PROCESS ========== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+
+        .process-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .process-num {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .process-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .process-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ========== AUTHORS ========== */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .author-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .author-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .author-header {
+            background: linear-gradient(135deg, var(--navy), var(--dark));
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .author-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .author-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .author-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .author-genre {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .author-email {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .author-email i {
+            color: var(--gold);
+        }
+
+        .author-email a {
+            color: var(--gray);
+        }
+
+        .author-email a:hover {
+            color: var(--gold);
+        }
+
+        .author-body {
+            padding: 40px;
+        }
+
+        .book-showcase {
+            display: flex;
+            gap: 30px;
+        }
+
+        .book-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .book-cover {
+            width: 170px;
+            height: 255px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-cover:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .amazon-btn {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff9900;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .amazon-btn:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 153, 0, 0.5);
+        }
+
+        .amazon-btn i {
+            font-size: 1.2rem;
+        }
+
+        .book-details h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .book-challenge {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background: var(--cream);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .result-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .result-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-box {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            font-style: italic;
+            color: #555;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .testimonial-box::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+        }
+
+        /* ========== INSIGHTS ========== */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .insight-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .insight-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover .insight-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+        }
+
+        .insight-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .insight-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ========== FAQ ========== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover,
+        .faq-item.active {
+            border-color: var(--gold);
+        }
+
+        .faq-item.active {
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark), var(--navy));
+            padding: 100px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--gold);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold);
+            padding: 20px 45px;
+            border-radius: 60px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-email:hover {
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-email i {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .cta-email a {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .contact-info > p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--text);
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contact-card a {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .email-reasons {
+            background: var(--navy);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .email-reasons h4 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .email-reasons li {
+            color: var(--gray);
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .email-reasons li i {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .contact-form > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .form-group label .required {
+            color: var(--gold);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #050508;
+            padding: 80px 50px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 25px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-col ul li a i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ========== BACK TO TOP ========== */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+            border: none;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1200px) {
+            .services-grid,
+            .insights-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 100px 40px;
+                gap: 25px;
+                transition: all 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 30px 60px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-desc {
+                margin: 0 auto 35px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-img-wrapper {
+                width: 320px;
+                height: 400px;
+            }
+
+            .floating-card.card1 {
+                right: 0;
+            }
+
+            .floating-card.card2 {
+                left: 0;
+            }
+
+            .section {
+                padding: 70px 30px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .experience-box {
+                right: 20px;
+            }
+
+            .authors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .services-grid,
+            .insights-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .book-showcase {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trust-grid {
+                flex-direction: column;
+            }
+
+            .cta-email {
+                flex-direction: column;
+                padding: 25px 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-img-wrapper {
+                width: 260px;
+                height: 340px;
+            }
+
+            .author-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <h1 class="loader-logo">Falcon Katie</h1>
+        <div class="loader-circle"></div>
+        <p class="loader-text">Loading Excellence</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo">
+            <img src="FALCON KATIE.jpg" alt="Falcon Katie">
+            <span>Falcon Katie</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#authors">Authors</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-glow glow1"></div>
+        <div class="hero-bg-glow glow2"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Elite Book Marketing Specialist</span>
+                </div>
+                <h1 class="hero-title">
+                    Transform Your Book<br>Into a <span class="highlight">Bestseller</span>
+                </h1>
+                <p class="hero-desc">
+                    Strategic, data-driven marketing solutions for authors who demand exceptional results. Let's turn your literary masterpiece into a market success.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Books Marketed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Discuss Your Book
+                    </a>
+                    <a href="#authors" class="btn btn-outline">
+                        <i class="fas fa-star"></i>
+                        Success Stories
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="hero-img-wrapper">
+                    <img src="FALCON KATIE.jpg" alt="Falcon Katie - Book Marketing Specialist">
+                    <div class="hero-img-frame"></div>
+                    
+                    <div class="floating-card card1">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <h4>300%+</h4>
+                            <p>Avg. Sales Increase</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card card2">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <h4>#1 Rankings</h4>
+                            <p>Amazon Categories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <p class="trust-title" data-aos="fade-up">Trusted by Authors Worldwide</p>
+            <div class="trust-grid">
+                <div class="trust-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fab fa-amazon"></i>
+                    <div>
+                        <h4>Amazon Expert</h4>
+                        <p>Certified Advertising</p>
+                    </div>
+                </div>
+                <div class="trust-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>100% Secure</h4>
+                        <p>Confidential Services</p>
+                    </div>
+                </div>
+                <div class="trust-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h4>Personalized</h4>
+                        <p>Custom Strategies</p>
+                    </div>
+                </div>
+                <div class="trust-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-file-contract"></i>
+                    <div>
+                        <h4>Documented</h4>
+                        <p>Email Communication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="FALCON KATIE.jpg" alt="Falcon Katie">
+                    <div class="about-accent"></div>
+                    <div class="experience-box">
+                        <span class="number">5+</span>
+                        <span class="text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-duration="1000">
+                    <span class="section-tag">About Me</span>
+                    <h3>Your Partner in Book Marketing Excellence</h3>
+                    <p>
+                        I'm Falcon Katie, a professional Book Marketing Specialist dedicated to transforming how authors reach their readers. With years of experience in the publishing industry, I understand the unique challenges authors face.
+                    </p>
+                    <p>
+                        My approach combines data-driven strategies with creative marketing to ensure your book doesn't just reach readers—it captivates them.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h4>Strategic Focus</h4>
+                                <p>Data-driven decisions</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4>Author-Centric</h4>
+                                <p>Your success is priority</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Communication</h4>
+                                <p>Documented & accountable</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div>
+                                <h4>Results Driven</h4>
+                                <p>Measurable outcomes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Let's Work Together
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-dark" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Services</span>
+                <h2 class="section-title">Book Marketing Solutions</h2>
+                <p class="section-desc">Tailored strategies to elevate your book's visibility and drive sales.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Book Launch</h3>
+                    <p>Comprehensive launch campaigns that create momentum from day one.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Pre-launch strategy</li>
+                        <li><i class="fas fa-check"></i> Target audience research</li>
+                        <li><i class="fas fa-check"></i> Multi-platform execution</li>
+                        <li><i class="fas fa-check"></i> Launch coordination</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fab fa-amazon"></i></div>
+                    <h3>Amazon Optimization</h3>
+                    <p>Master Amazon with strategic optimization that drives organic sales.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Keyword research</li>
+                        <li><i class="fas fa-check"></i> Category optimization</li>
+                        <li><i class="fas fa-check"></i> A+ Content creation</li>
+                        <li><i class="fas fa-check"></i> Advertising management</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+                    <h3>Social Media</h3>
+                    <p>Build your author platform across all major social channels.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Platform strategies</li>
+                        <li><i class="fas fa-check"></i> Content calendar</li>
+                        <li><i class="fas fa-check"></i> BookTok campaigns</li>
+                        <li><i class="fas fa-check"></i> Influencer outreach</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon"><i class="fas fa-star"></i></div>
+                    <h3>Review Generation</h3>
+                    <p>Ethical strategies to build your book's review count and credibility.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> ARC distribution</li>
+                        <li><i class="fas fa-check"></i> Blogger outreach</li>
+                        <li><i class="fas fa-check"></i> NetGalley management</li>
+                        <li><i class="fas fa-check"></i> Review monitoring</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Marketing</h3>
+                    <p>Build and nurture your reader list for long-term success.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> List building</li>
+                        <li><i class="fas fa-check"></i> Newsletter creation</li>
+                        <li><i class="fas fa-check"></i> Email automation</li>
+                        <li><i class="fas fa-check"></i> Launch sequences</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Author Branding</h3>
+                    <p>Establish your unique identity that resonates with readers.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Brand strategy</li>
+                        <li><i class="fas fa-check"></i> Bio development</li>
+                        <li><i class="fas fa-check"></i> Media kit creation</li>
+                        <li><i class="fas fa-check"></i> Authority building</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 60px;" data-aos="fade-up">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Discuss Your Needs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-cream" id="process">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">The Process</span>
+                <h2 class="section-title">How We Work Together</h2>
+                <p class="section-desc">A structured approach with documented email communication.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-num">1</div>
+                    <h3>Discovery</h3>
+                    <p>Email me to discuss your book, goals, and vision. I'll learn about your project.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-num">2</div>
+                    <h3>Audit</h3>
+                    <p>I analyze your current presence, competition, and market opportunities.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-num">3</div>
+                    <h3>Strategy</h3>
+                    <p>I create a custom marketing plan tailored to your book and goals.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-num">4</div>
+                    <h3>Proposal</h3>
+                    <p>Detailed strategy, timeline, and investment presented via email.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="process-num">5</div>
+                    <h3>Execution</h3>
+                    <p>I implement the strategy, continuously optimizing based on data.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="process-num">6</div>
+                    <h3>Reporting</h3>
+                    <p>Regular updates document progress, results, and next steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Authors Section -->
+    <section class="section section-light" id="authors">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Success Stories</span>
+                <h2 class="section-title">Featured Authors</h2>
+                <p class="section-desc">Real results from real authors. See how strategic marketing transformed their book sales.</p>
+            </div>
+            <div class="authors-grid">
+                <!-- Author 1: James Victor -->
+                <div class="author-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="author-header">
+                        <a href="https://www.amazon.com/author/jamesvictor" target="_blank" rel="noopener">
+                            <img src="James Victor.webp" alt="James Victor" class="author-avatar">
+                        </a>
+                        <div class="author-info">
+                            <h3>James Victor</h3>
+                            <p class="author-genre">Fiction Author</p>
+                            <p class="author-email">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:jamesdavidvictor6@gmail.com">jamesdavidvictor6@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="author-body">
+                        <div class="book-showcase">
+                            <div class="book-wrapper">
+                                <a href="https://www.amazon.com/author/jamesvictor" target="_blank" rel="noopener">
+                                    <img src="JAMES.webp" alt="James Victor's Book" class="book-cover">
+                                </a>
+                                <a href="https://www.amazon.com/author/jamesvictor" target="_blank" rel="noopener" class="amazon-btn">
+                                    <i class="fab fa-amazon"></i>
+                                    View on Amazon
+                                </a>
+                            </div>
+                            <div class="book-details">
+                                <h4>The Challenge</h4>
+                                <p class="book-challenge">James had a powerful story but zero visibility. His book was lost among millions on Amazon with minimal reviews.</p>
+                                <div class="results-grid">
+                                    <div class="result-box">
+                                        <span class="result-value">#1</span>
+                                        <span class="result-label">Category Rank</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">350%</span>
+                                        <span class="result-label">Sales Increase</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">150+</span>
+                                        <span class="result-label">New Reviews</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">6 Weeks</span>
+                                        <span class="result-label">To Results</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-box">
+                                    "Working with Falcon Katie transformed everything. Her strategic approach and constant communication gave me confidence. The results speak for themselves!"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Author 2: Kate Cullen -->
+                <div class="author-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="author-header">
+                        <a href="https://www.amazon.com/author/katecullen" target="_blank" rel="noopener">
+                            <img src="Kate Cullen.webp" alt="Kate Cullen" class="author-avatar">
+                        </a>
+                        <div class="author-info">
+                            <h3>Kate Cullen</h3>
+                            <p class="author-genre">Contemporary Fiction</p>
+                            <p class="author-email">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:katecullen473@gmail.com">katecullen473@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="author-body">
+                        <div class="book-showcase">
+                            <div class="book-wrapper">
+                                <a href="https://www.amazon.com/author/katecullen" target="_blank" rel="noopener">
+                                    <img src="KATE.webp" alt="Kate Cullen's Book" class="book-cover">
+                                </a>
+                                <a href="https://www.amazon.com/author/katecullen" target="_blank" rel="noopener" class="amazon-btn">
+                                    <i class="fab fa-amazon"></i>
+                                    View on Amazon
+                                </a>
+                            </div>
+                            <div class="book-details">
+                                <h4>The Challenge</h4>
+                                <p class="book-challenge">Kate's debut novel needed a strong launch strategy. With no existing platform, she needed comprehensive marketing support.</p>
+                                <div class="results-grid">
+                                    <div class="result-box">
+                                        <span class="result-value">Top 10</span>
+                                        <span class="result-label">Genre Ranking</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">500%</span>
+                                        <span class="result-label">ROI Achieved</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">200+</span>
+                                        <span class="result-label">Reviews</span>
+                                    </div>
+                                    <div class="result-box">
+                                        <span class="result-value">8 Weeks</span>
+                                        <span class="result-label">Campaign</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-box">
+                                    "Falcon Katie's expertise is unmatched. Every email was thorough, every strategy explained clearly. I couldn't have asked for a better marketing partner!"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 60px;" data-aos="fade-up">
+                <p style="color: #666; font-size: 1.1rem; margin-bottom: 25px;">Ready to become the next success story?</p>
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="section section-cream" id="insights">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Industry Insights</h2>
+                <p class="section-desc">Deep knowledge and proven strategies from years of experience.</p>
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="insight-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Strategic Thinking</h3>
+                    <p>Every decision is backed by data and industry knowledge. I analyze, strategize, and execute with precision.</p>
+                </div>
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="insight-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Market Analysis</h3>
+                    <p>Understanding your genre's landscape, reader behavior, and trends is essential for effective positioning.</p>
+                </div>
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="insight-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Multi-Channel</h3>
+                    <p>Success comes from coordinated efforts across Amazon, social media, email, and beyond.</p>
+                </div>
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="insight-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Continuous Optimization</h3>
+                    <p>Marketing isn't set-and-forget. I constantly monitor, test, and refine for maximum performance.</p>
+                </div>
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="insight-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Ethical Practices</h3>
+                    <p>All strategies comply with platform terms. No black-hat tactics—only sustainable methods.</p>
+                </div>
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="insight-icon"><i class="fas fa-infinity"></i></div>
+                    <h3>Long-Term Vision</h3>
+                    <p>I build author careers, not just single campaigns. Every strategy considers your long-term success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-dark" id="faq">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Common questions about working together.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What do you do as a Book Marketing Specialist?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I develop and execute comprehensive marketing strategies for books including Amazon optimization, social media campaigns, email marketing, review generation, and author branding—all customized to your goals.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How do I get started?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply email me at falconkat31@gmail.com with your book information and goals. We'll discuss via email, I'll audit your situation, develop a custom strategy, and present a detailed proposal.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Why only email communication?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Email ensures complete accountability and documentation. Every conversation, decision, and result is tracked, creating a permanent record of our partnership. It's professional and allows thoughtful responses.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What results can I expect?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Results vary by genre, competition, and strategy. Common outcomes include improved rankings, increased reviews, higher sales, and enhanced visibility. I'll set realistic expectations during our consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How does pricing work?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Every author's needs are different, so I develop custom proposals based on your goals, timeline, and required services. Investment details are discussed via email after I understand your project.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How long before I see results?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Some results like ranking improvements can happen within days. Sales momentum typically builds over 4-8 weeks. Platform growth is longer-term. We'll map specific milestones together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Ready to Transform Your Book's Success?</h2>
+            <p>Let's discuss how strategic marketing can elevate your author career.</p>
+            <div class="cta-email">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:falconkat31@gmail.com">falconkat31@gmail.com</a>
+            </div>
+            <br>
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Send a Message
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-light" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Discuss Your Book</h2>
+                <p class="section-desc">Fill out the form or email me directly.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Start the Conversation</h3>
+                    <p>Every successful book campaign starts with a conversation. All communication is handled via email for complete documentation.</p>
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Me</h4>
+                            <p><a href="mailto:falconkat31@gmail.com">falconkat31@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>Within 24-48 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <h4>Working Worldwide</h4>
+                            <p>Via professional email</p>
+                        </div>
+                    </div>
+                    <div class="email-reasons">
+                        <h4><i class="fas fa-shield-alt"></i> Why Email Communication?</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Complete documentation</li>
+                            <li><i class="fas fa-check-circle"></i> Clear accountability</li>
+                            <li><i class="fas fa-check-circle"></i> Trackable record</li>
+                            <li><i class="fas fa-check-circle"></i> Professional communication</li>
+                            <li><i class="fas fa-check-circle"></i> Thoughtful responses</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <h3>Send a Message</h3>
+                    <p>Fill out the form and I'll respond within 24-48 hours.</p>
+                    <form action="https://formspree.io/f/xjgponba" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name <span class="required">*</span></label>
+                                <input type="text" name="name" class="form-control" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email <span class="required">*</span></label>
+                                <input type="email" name="email" class="form-control" required placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Book Title</label>
+                                <input type="text" name="bookTitle" class="form-control" placeholder="Your book title">
+                            </div>
+                            <div class="form-group">
+                                <label>Genre</label>
+                                <select name="genre" class="form-control">
+                                    <option value="">Select genre</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Thriller">Thriller/Mystery</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="Sci-Fi">Science Fiction</option>
+                                    <option value="Non-Fiction">Non-Fiction</option>
+                                    <option value="Self-Help">Self-Help</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Publication Status <span class="required">*</span></label>
+                            <select name="status" class="form-control" required>
+                                <option value="">Select status</option>
+                                <option value="Published">Already Published</option>
+                                <option value="Forthcoming">Forthcoming</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Planning">Planning Stage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Goals <span class="required">*</span></label>
+                            <textarea name="goals" class="form-control" required placeholder="Tell me about your book and goals. What challenges are you facing?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="FALCON KATIE.jpg" alt="Falcon Katie">
+                    <span>Falcon Katie</span>
+                </div>
+                <p>Elite Book Marketing Specialist dedicated to transforming how authors reach their readers. Strategic, data-driven marketing solutions for exceptional results.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#authors"><i class="fas fa-chevron-right"></i> Authors</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Book Launch</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Amazon</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Social Media</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:falconkat31@gmail.com"><i class="fas fa-envelope"></i> falconkat31@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> 24-48h Response</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> Worldwide</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 <a href="#home">Falcon Katie</a>. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- AOS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hide');
+            }, 2000);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const position = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: position,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
